@@ -1,7 +1,7 @@
 ---
 layout: book
 ---
-<center>
+<div class="ff">
 ![this si about rerivion](./figures/1.1.png)
-</center>
+</div>
 no caption
