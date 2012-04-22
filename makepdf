@@ -1,5 +1,6 @@
 #!/bin/bash
 cd markdown/
+>main.tex
 for file in `ls *.md`
 do
     echo $file
@@ -7,5 +8,31 @@ do
     pandoc $file -o $shortname.tex  
     cat $shortname.tex >> main.tex
     rm $shortname.tex
-    rm *.log
+    rm *.log 2>/dev/null
 done
+
+# now section -> chap
+
+sed -i 's/^\\section{/\\chap{/g'  main.tex
+
+# subsection ->section
+sed -i 's/^\\subsection{/\\section{/g'  main.tex
+
+# subsubsection -> subsection
+sed -i 's/^\\subsubsection{/\\subsection{/g'  main.tex
+
+# add shared to code blocks
+
+sed -i 's/\\begin{verbatim}/\\begin{shaded}\\begin{verbatim}/g' main.tex
+sed -i 's/\\end{verbatim}/\\end{verbatim}\\end{shaded}/g' main.tex
+
+sed -e '/tableofcontents/r  main.tex' ../pdf/template.tex >newmain.tex
+
+# get pdf
+
+xelatex newmain.tex &>/dev/null
+xelatex newmain.tex 1>/dev/null
+
+# clean
+rm *.tex *.out *.log *.aux *.toc &>/dev/null
+mv newmain.pdf ..
