@@ -1,0 +1,11 @@
+#!/bin/bash
+cd markdown/
+for file in `ls *.md`
+do
+    echo $file
+    shortname=${file%.*}
+    pandoc $file -o $shortname.tex  
+    cat $shortname.tex >> main.tex
+    rm $shortname.tex
+    rm *.log
+done
