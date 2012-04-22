@@ -1,0 +1,32 @@
+\documentclass[11pt, a4paper]{book} % see "Documetnt classes http://en.wikibooks.org/wiki/LaTeX/Basics#LaTeX_groups
+% http://en.wikibooks.org/wiki/LaTeX/Packages/Hyperref
+\usepackage[
+	%urlbordercolor = {1 1 1},
+	%linkbordercolor = {1 1 1},
+	%citebordercolor = {1 1 1},
+	urlcolor = red,
+	colorlinks = true,
+	citecolor = black,
+	linkcolor = black]{hyperref}
+\usepackage{graphicx}
+\usepackage[font=small,format=plain,labelfont=bf,up,textfont=it,up]{caption}
+%http://en.wikibooks.org/wiki/LaTeX/Colors
+\usepackage{framed,color} %http://tug.ctan.org/search.html and search framed, color
+\definecolor{shadecolor}{gray}{0.90}
+\title{LGCB}
+\author{Peter Wang}
+\date{2001.1.1}
+\linespread{1.1} %http://en.wikibooks.org/wiki/LaTeX/Text_Formatting#Sizing_text
+\newcommand{\chap}[1]{\newpage\thispagestyle{empty}\chapter{#1}\label{chap:\thechapter}}
+\setlength\textwidth{160mm} % http://en.wikibooks.org/wiki/LaTeX/Useful_Measurement_Macros
+\setlength\oddsidemargin  {0.00in}
+\setlength\evensidemargin  {0.00in}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\setcounter{tocdepth}{4} 
+\tableofcontents\newpage\thispagestyle{empty}
+
+{{ main content }}
+
+\end{document}
