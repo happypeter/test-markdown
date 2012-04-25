@@ -29,7 +29,10 @@ sed -i 's/\\end{verbatim}/\\end{verbatim}\\end{shaded}/g' main.tex
 sed -e '/tableofcontents/r  main.tex' ../pdf/template.tex >newmain.tex
 
 # get pdf
-
+# why we need to run it twice:
+# "so you need to re-run LaTeX one extra time to ensure that all ToC
+# pagenumber references are correctly calculated."
+# http://en.wikibooks.org/wiki/LaTeX/Document_Structure
 xelatex newmain.tex &>/dev/null
 xelatex newmain.tex 1>/dev/null
 
