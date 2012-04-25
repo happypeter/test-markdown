@@ -11,9 +11,9 @@ do
     rm *.log 2>/dev/null
 done
 
-# now section -> chap
+# now section -> chapter
 
-sed -i 's/^\\section{/\\chap{/g'  main.tex
+sed -i 's/^\\section{/\\chapter{/g'  main.tex
 
 # subsection ->section
 sed -i 's/^\\subsection{/\\section{/g'  main.tex
