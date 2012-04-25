@@ -21,10 +21,10 @@ sed -i 's/^\\subsection{/\\section{/g'  main.tex
 # subsubsection -> subsection
 sed -i 's/^\\subsubsection{/\\subsection{/g'  main.tex
 
-# add shared to code blocks
+# use footnotesize for code blocks
 
-sed -i 's/\\begin{verbatim}/\\begin{shaded}\\begin{verbatim}/g' main.tex
-sed -i 's/\\end{verbatim}/\\end{verbatim}\\end{shaded}/g' main.tex
+sed -i 's/\\begin{verbatim}/{\\footnotesize\\begin{verbatim}/g' main.tex
+sed -i 's/\\end{verbatim}/\\end{verbatim}}/g' main.tex
 
 sed -e '/tableofcontents/r  main.tex' ../pdf/template.tex >newmain.tex
 
@@ -33,8 +33,8 @@ sed -e '/tableofcontents/r  main.tex' ../pdf/template.tex >newmain.tex
 # "so you need to re-run LaTeX one extra time to ensure that all ToC
 # pagenumber references are correctly calculated."
 # http://en.wikibooks.org/wiki/LaTeX/Document_Structure
+xelatex newmain.tex 
 xelatex newmain.tex &>/dev/null
-xelatex newmain.tex 1>/dev/null
 
 # clean
 rm *.tex *.out *.log *.aux *.toc &>/dev/null
