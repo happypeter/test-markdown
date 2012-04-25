@@ -34,8 +34,8 @@ sed -e '/tableofcontents/r  main.tex' ../pdf/template.tex >newmain.tex
 # pagenumber references are correctly calculated."
 # http://en.wikibooks.org/wiki/LaTeX/Document_Structure
 xelatex newmain.tex 
-xelatex newmain.tex &>/dev/null
+xelatex newmain.tex 
 
 # clean
-rm *.tex *.out *.log *.aux *.toc &>/dev/null
+rm ch0*.tex *.out *.log *.aux *.toc &>/dev/null
 mv newmain.pdf ..
