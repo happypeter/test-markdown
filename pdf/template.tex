@@ -11,26 +11,7 @@
 \usepackage{framed,color} %http://tug.ctan.org/search.html and search framed, color
 \definecolor{shadecolor}{gray}{0.90}
 \linespread{1.1} %http://en.wikibooks.org/wiki/LaTeX/Text_Formatting#Sizing_text
-
-%%%%%%%%%%%%%%%%%
-% set page layout 
-%
-%    $texdoc fancyhdr
-%
-%%%%%%%%%%%%%%%%
-\usepackage{fancyhdr}
-\fancypagestyle{plain}{\fancyhf{}\fancyfoot[LE,RO]{\footnotesize\textbf\thepage}}
-\pagestyle{plain}
-\fancyhf{}
-\fancyhead[LE]{{\small\leftmark}}
-\fancyhead[RO]{{\small\rightmark}}
-\fancyfoot[LE,RO]{\small\textbf\thepage}
-\pagestyle{fancy}
-\setlength\voffset{-20mm} % I set this to reduce the margin on top(higher the header) 
-\setlength\textheight{240mm} % I set this to lower down the footer(the pagenumber)
-\setlength\textwidth{160mm} % http://en.wikibooks.org/wiki/LaTeX/Useful_Measurement_Macros
-\setlength\oddsidemargin  {0.00in}
-\setlength\evensidemargin  {0.00in}
+\usepackage{fullpage}
 
 \begin{document}
 \title{Linux Guide for Chinese Beginners}
